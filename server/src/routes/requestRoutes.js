@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { requestController } from '../controllers/requestController.js';
+import { authenticateToken, optionalAuthToken } from '../middleware/authMiddleware.js';
+const router = Router();
+router.post('/', optionalAuthToken, requestController.createRequest);
+router.get('/', optionalAuthToken, requestController.getAllRequests);
+router.get('/:id', optionalAuthToken, requestController.getRequestById);
+router.patch('/:id/status', optionalAuthToken, requestController.updateStatus);
+router.delete('/:id', authenticateToken, requestController.deleteRequest);
+export default router;

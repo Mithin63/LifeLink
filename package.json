@@ -1,0 +1,18 @@
+{
+  "name": "bloodconnect",
+  "version": "1.0.0",
+  "description": "BloodConnect – Full-Stack Blood Donor & Emergency Request Management System",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server",
+    "build": "npm run build --prefix client"
+  },
+  "keywords": ["blood-donation", "emergency-request", "donor-matching", "react", "express", "fullstack"],
+  "author": "BloodConnect Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

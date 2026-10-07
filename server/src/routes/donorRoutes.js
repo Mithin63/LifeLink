@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { donorController } from '../controllers/donorController.js';
+import { authenticateToken, optionalAuthToken } from '../middleware/authMiddleware.js';
+const router = Router();
+router.get('/', optionalAuthToken, donorController.getAllDonors);
+router.get('/:id', optionalAuthToken, donorController.getDonorById);
+router.put('/:id', authenticateToken, donorController.updateDonorProfile);
+router.patch('/:id/availability', authenticateToken, donorController.toggleAvailability);
+router.get('/:id/donations', donorController.getDonations);
+router.post('/:id/donations', authenticateToken, donorController.recordDonation);
+export default router;
